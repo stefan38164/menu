@@ -1,0 +1,23 @@
+.meal-details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
+  .meal-list {
+    grid-column: 1;
+  }
+  
+  .meal-details {
+    grid-column: 2;
+  }
+  .meal-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .meal-link:hover {
+    color: darkblue;
+  }
+  

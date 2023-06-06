@@ -1,0 +1,29 @@
+<div class="meal-details-container">
+  <div class="meal-list">
+    <h2>Meal Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th *ngFor="let column of columns">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let meal of meals; let i = index" (click)="openMealDetails(meal)">
+          <td>{{ meal.idMeal }}</td>
+          <td><span class="meal-link">{{ meal.strMeal }}</span></td>
+          <td>{{ mealDetailList[i]?.[0]?.strTags }}</td>
+          <td>{{ mealDetailList[i]?.[0]?.strArea }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="meal-details">
+    <app-single-meal-details *ngIf="selectedMeal" [meal]="selectedMeal"></app-single-meal-details>
+  </div>
+</div>
+
+
+
+
+
