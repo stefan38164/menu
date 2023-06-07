@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'about', component: AboutComponent },
   { path: 'menu/meal-details/:id', component: MealDetailsComponent },
+  { path: 'menu/meal-area/:area', component: MealDetailsComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

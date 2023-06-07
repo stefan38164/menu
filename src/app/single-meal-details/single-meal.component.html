@@ -5,7 +5,11 @@
     </div>
     <div class="meal-info">
       <h3>Main Ingredients:</h3>
-     
+      <ol>
+        <li *ngFor="let ingredient of ingredients">{{ingredient}}</li>
+      </ol>
+      <h3>Preparing:</h3>
+      <div>{{meal.strInstructions}}</div>
     </div>
   </div>
   

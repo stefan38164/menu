@@ -28,6 +28,11 @@ export class ApiService {
       .get<any>(`${this.apiUrl}/lookup.php?i=${id}`)
       .pipe(map((response) => response.meals));
   }
+  getMealByArea(area: string): Observable<Meal[]> {
+    return this.http
+      .get<any>(`${this.apiUrl}/filter.php?a=${area}`)
+      .pipe(map((response) => response.meals));
+  }
   getMealsByCategory(category: string): Observable<Meal[]> {
     const url = `${this.apiUrl}/filter.php?c=${category}`;
     return this.http

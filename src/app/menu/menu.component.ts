@@ -12,15 +12,20 @@ export class MenuComponent implements OnInit {
   areas!: Area[];
   nationalDishSelected = false;
  
-  
+  selectedMenu: string = 'categories';
 
+ 
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.getCategories();
     this.getAreas();
   }
-
+ 
+  selectMenu(event: any) {
+    const selectedValue = event.target.value;
+    this.selectedMenu = selectedValue;
+  }
   getCategories() {
     this.apiService.getCategories().subscribe((categories) => {
       this.meals = categories;

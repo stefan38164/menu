@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MealDetailsComponent } from './meals-details/meal-details.component';
 import { SingleMealDetailsComponent } from './single-meal-details/single-meal.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SingleMealDetailsComponent } from './single-meal-details/single-meal.co
 
        MealDetailsComponent,
        SingleMealDetailsComponent,
+       HeaderComponent,
     
   ],
   imports: [

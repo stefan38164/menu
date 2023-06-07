@@ -1,21 +1,31 @@
-<div>
-  <h2>Menu</h2>
-  <div>
-    <h3>Categories:</h3>
-    <ul>
-      <li *ngFor="let meal of meals">
-        <a [routerLink]="['/menu/meal-details', meal.strCategory]">{{
-          meal.strCategory
-        }}</a>
-      </li>
-    </ul>
+<app-header></app-header>
+<div class="content">
+  <div class="wrapper">
+    <div class="menu-selector">
+      <select class="menu-select" (change)="selectMenu($event)">
+        <option value="categories">Categories</option>
+        <option value="national-dishes">National dishes</option>
+      </select>
+    </div>
+    <div class="options">
+      <div *ngIf="selectedMenu === 'categories'" class="categories">
+        <ul class="column">
+          <li *ngFor="let meal of meals">
+            <a [routerLink]="['/menu/meal-details', meal.strCategory]">{{ meal.strCategory }}</a>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="selectedMenu === 'national-dishes'" class="categories">
+        <ul class="column">
+          <li *ngFor="let area of areas">
+            <a [routerLink]="['/menu/meal-area/', area.strArea ]">{{ area.strArea }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
-<h3>National Dishes:</h3>
-<button (click)="showNationalDishes()">National dishes</button>
-<ng-container *ngIf="nationalDishSelected">
-  <ul>
-    <li *ngFor="let area of areas">{{ area.strArea }}</li>
-  </ul>
-</ng-container>
+
+
+

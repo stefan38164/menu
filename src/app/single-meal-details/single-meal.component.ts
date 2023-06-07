@@ -7,19 +7,21 @@ import { ApiService } from '../api.service';
   styleUrls: ['./single-meal.component.css'],
 })
 export class SingleMealDetailsComponent {
-  @Input() meal: Meal | null = null;
-  mealDetail: MealDetail | null = null;
+  @Input() meal!: MealDetail | null;
+  
 
-  constructor( private apiService: ApiService) {}
-
+  ingredients: string[] = [];
+  constructor(private apiService: ApiService) {}
 
   ngOnChanges() {
-    if (this.meal) {
-      this.getMealDetailById(this.meal.idMeal);
+    if (this.meal !== null) {
+      const keys = Object.keys(this.meal) as (keyof MealDetail)[];
+      const filteredKeys = keys.filter((key) => key.includes('strIngredient'));
+      this.ingredients = filteredKeys
+        .map((key) => this.meal![key]) 
+        .filter((value) => value !== null && value !== '') as string[];
+        console.log("aaaaa" + this.meal);
+        
     }
-  }
-
-  getMealDetailById(mealId: string) {
-  this.apiService.getMealById(mealId).subscribe(response=> this.mealDetail = response);
   }
 }
