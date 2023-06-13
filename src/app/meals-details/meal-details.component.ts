@@ -23,46 +23,45 @@ export class MealDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      if (Object.keys(params).includes('id')) {
-        const mealCategory = params['id'];
-        this.getMealCategories(mealCategory);
+      if (params['id']) {
+        this.getMealCategories(params['id']);
       }
-      if (Object.keys(params).includes('area')) {
-        const mealArea = params['area'];
-        this.getMealArea(mealArea);
+
+      if (params['area']) {
+        this.getMealArea(params['area']);
       }
     });
   }
 
-  getMealCategories(category: string) {
-    this.apiService.getMealsByCategory(category).subscribe((meals) => {
+  getMealCategories(category: string):void {
+    this.apiService.getMealsByCategory(category).subscribe((meals:Meal[]) => {
       this.meals = meals;
 
       this.fetchMealDetails(meals);
     });
   }
-  getMealArea(area: string) {
-    this.apiService.getMealByArea(area).subscribe((meals) => {
+  getMealArea(area: string):void {
+    this.apiService.getMealByArea(area).subscribe((meals:Meal[]) => {
       this.mealAreaList = meals;
       this.fetchMealDetails(this.mealAreaList);
     });
   }
 
-  fetchMealDetails(array: any) {
-    const observables = array.map((meal: any) =>
+  fetchMealDetails(array: Meal[]):void {
+    const ids = array.map((meal: Meal) =>
       this.apiService.getMealById(meal.idMeal)
     );
     if (array === this.meals) {
-      forkJoin(observables).subscribe((response) => {
+      forkJoin(ids).subscribe((response:MealDetail[]) => {
         this.mealCategoryList = response;
       });
     } else {
-      forkJoin(observables).subscribe((response) => {
+      forkJoin(ids).subscribe((response:MealDetail[]) => {
         this.mealsAreaList = response;
       });
     }
   }
-  openMealDetails(meal: MealDetail | null) {
+  openMealDetails(meal: MealDetail | null):void {
     this.selectedMeal = meal;
   }
 }

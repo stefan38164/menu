@@ -1,6 +1,7 @@
 .meal-details-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  min-height: 100vh;
 }
 
 .meal-list {
@@ -9,9 +10,9 @@
 
 .meal-details {
   grid-column: 2;
-
   z-index: -1;
 }
+
 .meal-link {
   color: blue;
   text-decoration: underline;
@@ -21,14 +22,17 @@
 .meal-link:hover {
   color: darkblue;
 }
+
 td {
   border-bottom: 1px solid black;
 }
+
 th,
 td {
   padding: 10px 30px 0px 10px;
   text-align: left;
 }
+
 .number {
   font-weight: bold;
 }

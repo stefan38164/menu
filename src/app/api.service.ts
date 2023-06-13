@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MenuCategory, Area, Meal, MealDetail } from './models/models';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,24 +14,24 @@ export class ApiService {
 
   getCategories(): Observable<MenuCategory[]> {
     return this.http
-      .get<any>(`${this.apiUrl}/categories.php`)
+      .get<{ categories: MenuCategory[] }>(`${this.apiUrl}/categories.php`)
       .pipe(map((response) => response.categories));
   }
 
   getAreas(): Observable<Area[]> {
     return this.http
-      .get<any>(`${this.apiUrl}/list.php?a=list`)
+      .get<{ meals: Area[] }>(`${this.apiUrl}/list.php?a=list`)
       .pipe(map((response) => response.meals));
   }
 
   getMealById(id: string): Observable<MealDetail> {
     return this.http
-      .get<any>(`${this.apiUrl}/lookup.php?i=${id}`)
+      .get<{ meals: MealDetail }>(`${this.apiUrl}/lookup.php?i=${id}`)
       .pipe(map((response) => response.meals));
   }
   getMealByArea(area: string): Observable<Meal[]> {
     return this.http
-      .get<any>(`${this.apiUrl}/filter.php?a=${area}`)
+      .get<{ meals: Meal[] }>(`${this.apiUrl}/filter.php?a=${area}`)
       .pipe(map((response) => response.meals));
   }
   getMealsByCategory(category: string): Observable<Meal[]> {

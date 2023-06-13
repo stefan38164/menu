@@ -1,3 +1,7 @@
+.content {
+  min-height: 100vh;
+}
+
 .menu-selector {
   float: right;
   position: relative;
@@ -85,4 +89,18 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.search-container input {
+  float: left;
+  position: relative;
+  top: 224px;
+  left: 100px;
+  padding: 6px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  color: #555;
 }

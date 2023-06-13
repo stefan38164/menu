@@ -1,4 +1,5 @@
-<div class="meal-details-container" *ngIf="meal">
+<ng-container *ngIf="meal">
+  <div class="meal-details-container">
     <div class="meal-image">
       <h2>{{ meal.strMeal }}</h2>
       <img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}" />
@@ -6,10 +7,10 @@
     <div class="meal-info">
       <h3>Main Ingredients:</h3>
       <ol>
-        <li *ngFor="let ingredient of ingredients">{{ingredient}}</li>
+        <li *ngFor="let ingredient of ingredients">{{ ingredient }}</li>
       </ol>
       <h3>Preparing:</h3>
-      <div>{{meal.strInstructions}}</div>
+      <div>{{ meal.strInstructions }}</div>
     </div>
   </div>
-  
+</ng-container>

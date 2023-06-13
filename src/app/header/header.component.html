@@ -7,7 +7,9 @@
           alt="Logo"
         /></div
     ></a>
-    <a class="link" href="">Picasso</a>
+    <a class="link" [ngClass]="{ 'red-link': isRouteEmpty() }" routerLink=""
+      >Picasso</a
+    >
   </div>
   <ul>
     <li><a routerLink="">HOME</a></li>

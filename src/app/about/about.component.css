@@ -5,34 +5,33 @@
   align-items: center;
   justify-content: center;
 }
-.wrapper  {
-  background-color: rgb(253, 254, 255);
 
+.wrapper {
+  background-color: rgb(253, 254, 255);
   width: 50%;
   height: 30%;
   padding-left: 200px;
   border-radius: 3px;
 }
-h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 30px;
-    color: black;
-    line-height: 1.5;
-    margin-bottom: 5px;
 
-  }
-  
-  .address {
-    font-style: italic;
-  }
-  
-  .contact-info {
-    font-weight: bold;
-  }
-  
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 30px;
+  color: black;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.address {
+  font-style: italic;
+}
+
+.contact-info {
+  font-weight: bold;
+}

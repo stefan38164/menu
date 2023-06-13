@@ -6,7 +6,7 @@
   margin-top: 30px;
   margin-left: 80px;
   position: relative;
-  z-index: -1;
+  min-height: 100vh;
 }
 
 .meal-image {
@@ -35,9 +35,8 @@
 }
 
 .meal-info h3 {
-
   font-size: 15px;
-  margin: 20px 0px 5px 0px;
+  margin: 20px 0px 7px 0px;
 }
 
 .meal-info ul {
@@ -47,11 +46,11 @@
 }
 
 .meal-info li {
-  font-size: 16px;
+  font-size: 13px;
   margin-bottom: 5px;
 }
-.meal-info div{
-    margin-top: 10px;
-    text-align: left;
-    margin-bottom: 30px;
+.meal-info div {
+  margin-top: 10px;
+  text-align: left;
+  margin-bottom: 30px;
 }

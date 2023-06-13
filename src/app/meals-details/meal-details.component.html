@@ -1,52 +1,59 @@
-<app-header></app-header>
 <div class="meal-details-container">
   <div class="meal-list">
-    <table *ngIf="meals; else areaTable">
-      <thead>
-        <tr>
-          <th *ngFor="let column of columnsCategory">{{ column }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let meal of meals; let i = index" (click)="openMealDetails(mealCategoryList[i]?.[0])">
-          <td class="number">{{i+1}}.</td>
-          <td>{{ meal.idMeal }}</td>
-          <td><span class="meal-link">{{ meal.strMeal }}</span></td>
-          <td>{{ mealCategoryList[i]?.[0]?.strTags }}</td>
-          <td>{{ mealCategoryList[i]?.[0]?.strArea }}</td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <ng-template #areaTable>
+    <ng-container *ngIf="meals && mealCategoryList; else areaTable">
       <table>
         <thead>
           <tr>
-            <th *ngFor="let column of columnsArea">{{ column }}</th>
+            <th *ngFor="let column of columnsCategory">{{ column }}</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let mealA of mealAreaList; let i = index" (click)=" openMealDetails(mealsAreaList[i]?.[0])">
-            <td>{{i+1}}.</td>
-            <td>{{ mealA.idMeal }}</td>
-            <td><span class="meal-link">{{ mealA.strMeal }}</span></td>
-            <td>{{ mealsAreaList[i]?.[0].strCategory}}</td>
+          <tr
+            *ngFor="let meal of meals; let i = index"
+            (click)="openMealDetails(mealCategoryList[i][0])"
+          >
+            <td class="number">{{ i + 1 }}.</td>
+            <td>{{ meal.idMeal }}</td>
+            <td>
+              <span class="meal-link">{{ meal.strMeal }}</span>
+            </td>
+            <td>{{ mealCategoryList[i][0].strTags }}</td>
+            <td>{{ mealCategoryList[i][0].strArea }}</td>
           </tr>
         </tbody>
       </table>
+    </ng-container>
+    
+    <ng-template #areaTable>
+      <ng-container *ngIf="mealAreaList">
+        <table>
+          <thead>
+            <tr>
+              <th *ngFor="let column of columnsArea">{{ column }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let mealA of mealAreaList; let i = index"
+              (click)="openMealDetails(mealsAreaList[i][0])"
+            >
+              <td>{{ i + 1 }}.</td>
+              <td>{{ mealA.idMeal }}</td>
+              <td>
+                <span class="meal-link">{{ mealA.strMeal }}</span>
+              </td>
+              <td>{{ mealsAreaList[i][0].strCategory }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
     </ng-template>
   </div>
 
   <div class="meal-details">
-    <app-single-meal-details *ngIf="selectedMeal else mealArea" [meal]="selectedMeal"></app-single-meal-details>
-    <ng-template #mealArea>
-      <app-single-meal-details [meal]="selectedMeal"></app-single-meal-details>
-    </ng-template>
+    <app-single-meal-details
+      *ngIf="selectedMeal"
+      [meal]="selectedMeal"
+    ></app-single-meal-details>
   </div>
 </div>
-
-
-
-
-
-

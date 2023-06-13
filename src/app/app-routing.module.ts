@@ -11,12 +11,11 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'menu/meal-details/:id', component: MealDetailsComponent },
   { path: 'menu/meal-area/:area', component: MealDetailsComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}
