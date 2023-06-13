@@ -1,0 +1,106 @@
+.content {
+  min-height: 100vh;
+}
+
+.menu-selector {
+  float: right;
+  position: relative;
+  top: 220px;
+  right: 100px;
+}
+
+.menu-select {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 18px;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  color: #555;
+  position: relative;
+}
+
+.menu-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+}
+
+.menu-select option {
+  background-color: white;
+  color: #555;
+}
+
+.content {
+  width: 100%;
+  background-color: rgb(99, 91, 91);
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 60%;
+  height: 100vh;
+  background-image: url("https://cdn4.vectorstock.com/i/1000x1000/52/23/blank-menu-on-blackboard-vector-21645223.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+  color: black;
+  padding: 20px;
+}
+
+ul {
+  margin-left: 120px;
+  margin-top: 20px;
+  padding: 0;
+  -webkit-column-count: 3; /* Podešavanje broja kolona na 2 */
+  -moz-column-count: 3;
+  column-count: 3;
+  column-gap: 50px;
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 20px;
+  counter-increment: option-counter;
+  position: relative;
+  color: gold;
+  font-size: 20px;
+  margin-right: 70px;
+}
+
+li::before {
+  content: counter(option-counter) ". ";
+  font-weight: bold;
+  position: absolute;
+  left: -60px;
+}
+
+a {
+  text-decoration: none;
+  color: gold;
+  font-size: 20px;
+  font-style: italic;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.search-container input {
+  float: left;
+  position: relative;
+  top: 224px;
+  left: 100px;
+  padding: 6px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  color: #555;
+}

@@ -1,0 +1,41 @@
+<div class="content">
+  <div class="wrapper">
+    <div class="menu-selector">
+      <select class="menu-select" (change)="selectMenu($event)">
+        <option value="categories">Categories</option>
+        <option value="national-dishes">National dishes</option>
+      </select>
+    </div>
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search"
+        [(ngModel)]="searchQuery"
+        (input)="Search()"
+      />
+    </div>
+    <div class="options">
+      <div *ngIf="selectedMenu === 'categories'" class="categories">
+        <ng-container *ngIf="meals" >
+        <ul class="column">
+          <li *ngFor="let meal of meals">
+            <a [routerLink]="['/menu/meal-details', meal.strCategory]">{{
+              meal.strCategory
+            }}</a>
+          </li>
+        </ul>
+      </ng-container>
+      </div>
+    
+      <div *ngIf="selectedMenu === 'national-dishes'" class="categories">
+        <ul class="column">
+          <li *ngFor="let area of areas">
+            <a [routerLink]="['/menu/meal-area/', area.strArea]">{{
+              area.strArea
+            }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
